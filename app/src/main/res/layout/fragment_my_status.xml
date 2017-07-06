@@ -1,0 +1,69 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/all"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorPrimaryDark"
+    android:orientation="vertical"
+    tools:context="au.com.gravitywave.amblerwalkbuddy.my_status.MyStatusFragment">
+
+    <TextView
+        android:id="@+id/myNameTextView"
+        style="@style/BigName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:text="@string/my_name" />
+
+    <TextView
+        style="@style/SubText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:text="@string/your_status_is" />
+
+    <!--<FrameLayout-->
+        <!--android:background="@color/toggle_background"-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:layout_gravity="center">-->
+        <!--<ToggleButton-->
+            <!--android:id="@+id/changeStatusToggleButton"-->
+            <!--android:layout_width="130dp"-->
+            <!--android:layout_height="130dp"-->
+            <!--android:layout_margin="@dimen/button_margin"-->
+            <!--android:textOn="@string/on_line"-->
+            <!--android:textOff="@string/off_line"-->
+            <!--android:layout_gravity="center"-->
+            <!--android:layout_centerVertical="true"/>-->
+        <!--android:background="@drawable/check"-->
+    <!--android:drawableLeft="@drawable/ic_notifications_black_24dp"-->
+    <!--android:background="@color/toggle_background"-->
+
+    <!--</FrameLayout>-->
+
+    <ToggleButton
+        android:id="@+id/changeStatusToggleButton"
+        android:layout_width="130dp"
+        android:layout_height="130dp"
+        android:textOn="@string/on_line"
+        android:textOff="@string/off_line"
+        android:layout_gravity="center"/>
+
+    <Switch
+        android:id="@+id/switch1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Available" />
+    <!--android:scaleX="2"-->
+    <!--android:scaleY="2"-->
+
+    <TextView
+        android:id="@+id/statusMessageTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:text="@string/online_message"
+        android:visibility="gone" />
+
+</LinearLayout>

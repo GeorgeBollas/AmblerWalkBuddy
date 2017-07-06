@@ -1,0 +1,13 @@
+<resources>
+    <string name="app_name">Ambler Walk Buddy</string>
+    <string name="title_request_list">Current Requests</string>
+    <string name="title_my_offers">My Offers</string>
+    <string name="title_my_status">My Status</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="my_name">George</string>
+    <string name="your_status_is">click to change your status</string>
+    <string name="on_line">On Line</string>
+    <string name="off_line">Off Line</string>
+    <string name="online_message">you are now receive request</string>
+</resources>
