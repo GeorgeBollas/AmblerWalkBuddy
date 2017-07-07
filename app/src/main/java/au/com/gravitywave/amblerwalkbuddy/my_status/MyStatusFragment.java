@@ -13,6 +13,8 @@ import android.widget.TextView;
 import android.widget.ToggleButton;
 
 import au.com.gravitywave.amblerwalkbuddy.R;
+import butterknife.BindView;
+import butterknife.ButterKnife;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -26,8 +28,13 @@ public class MyStatusFragment extends Fragment {
 
     private OnFragmentInteractionListener mListener;
 
+    @BindView(R.id.all)
     LinearLayout mAll;
+
+    @BindView(R.id.changeStatusToggleButton)
     ToggleButton mChangeStatusToggleButton;
+
+    @BindView(R.id.statusMessageTextView)
     TextView mStatusMessageTextView;
 
     public MyStatusFragment() {
@@ -57,10 +64,7 @@ public class MyStatusFragment extends Fragment {
         // Inflate the layout for this fragment
         View v = inflater.inflate(R.layout.fragment_my_status, container, false);
 
-        mAll = (LinearLayout)v.findViewById(R.id.all);
-        mChangeStatusToggleButton = (ToggleButton) v.findViewById(R.id.changeStatusToggleButton);
-        mStatusMessageTextView = (TextView)v.findViewById(R.id.statusMessageTextView);
-
+        ButterKnife.bind(this, v);
 
         mChangeStatusToggleButton.setOnClickListener( new View.OnClickListener() {
             @Override
