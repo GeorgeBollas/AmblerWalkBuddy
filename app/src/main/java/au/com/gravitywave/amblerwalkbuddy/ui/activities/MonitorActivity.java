@@ -36,7 +36,9 @@ public class MonitorActivity
         FragmentManager fragmentManager = getSupportFragmentManager();
         FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
         fragmentTransaction.replace(R.id.my_offers_container, MyOffersFragment.newInstance(buddyId));
+        fragmentTransaction.replace(R.id.current_offers_container, MyOffersFragment.newInstance(buddyId));
         fragmentTransaction.commit();
+
     }
 
     @Override

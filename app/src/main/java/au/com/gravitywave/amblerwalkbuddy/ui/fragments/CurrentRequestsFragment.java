@@ -12,9 +12,11 @@ import android.view.ViewGroup;
 import java.util.List;
 
 import au.com.gravitywave.amblerwalkbuddy.R;
+import au.com.gravitywave.amblerwalkbuddy.currentrequests.CurrentRequestsPresenter;
+import au.com.gravitywave.amblerwalkbuddy.currentrequests.ICurrentRequestsPresenter;
 import au.com.gravitywave.amblerwalkbuddy.currentrequests.ICurrentRequestsView;
 import au.com.gravitywave.amblerwalkbuddy.entities.Request;
-import au.com.gravitywave.amblerwalkbuddy.ui.MyCurrentRequestRecyclerViewAdapter;
+import au.com.gravitywave.amblerwalkbuddy.ui.CurrentRequestRecyclerViewAdapter;
 
 /**
  * A fragment representing a list of Items.
@@ -27,6 +29,8 @@ public class CurrentRequestsFragment extends Fragment implements ICurrentRequest
     private OnListFragmentInteractionListener mListener;
 
     private List<Request> mCurrentRequests;
+    private View mCurrentRequestsView;
+    ICurrentRequestsPresenter mPresenter;
     /**
      * Mandatory empty constructor for the fragment manager to instantiate the
      * fragment (e.g. upon screen orientation changes).
@@ -44,21 +48,18 @@ public class CurrentRequestsFragment extends Fragment implements ICurrentRequest
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        mPresenter = new CurrentRequestsPresenter(this);
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_current_requests_list, container, false);
+        mCurrentRequestsView = inflater.inflate(R.layout.fragment_current_requests_list, container, false);
 
-        // Set the adapter
-        if (view instanceof RecyclerView) {
-            Context context = view.getContext();
-            RecyclerView recyclerView = (RecyclerView) view;
-                recyclerView.setLayoutManager(new LinearLayoutManager(context));
-            recyclerView.setAdapter(new MyCurrentRequestRecyclerViewAdapter(mCurrentRequests, mListener));
-        }
-        return view;
+        mPresenter.ShowCurrentRequests();
+
+        return mCurrentRequestsView;
     }
 
 
@@ -81,8 +82,12 @@ public class CurrentRequestsFragment extends Fragment implements ICurrentRequest
 
     @Override
     public void ShowCurrentRequests(List<Request> currentRequests) {
-
-    }
+        // Set the adapter
+            Context context = mCurrentRequestsView.getContext();
+            RecyclerView recyclerView = (RecyclerView) mCurrentRequestsView;
+            recyclerView.setLayoutManager(new LinearLayoutManager(context));
+            recyclerView.setAdapter(new CurrentRequestRecyclerViewAdapter(currentRequests, mListener));
+        }
 
     /**
      * This interface must be implemented by activities that contain this

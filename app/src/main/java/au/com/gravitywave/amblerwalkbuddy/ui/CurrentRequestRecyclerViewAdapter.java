@@ -7,23 +7,22 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import au.com.gravitywave.amblerwalkbuddy.R;
-import au.com.gravitywave.amblerwalkbuddy.ui.fragments.CurrentRequestsFragment.OnListFragmentInteractionListener;
-import au.com.gravitywave.amblerwalkbuddy.currentrequests.dummy.DummyContent.DummyItem;
 import au.com.gravitywave.amblerwalkbuddy.entities.Request;
+import au.com.gravitywave.amblerwalkbuddy.ui.fragments.CurrentRequestsFragment.OnListFragmentInteractionListener;
 
 import java.util.List;
 
 /**
- * {@link RecyclerView.Adapter} that can display a {@link DummyItem} and makes a call to the
+ * {@link RecyclerView.Adapter} that can display a {@link Request} and makes a call to the
  * specified {@link OnListFragmentInteractionListener}.
  * TODO: Replace the implementation with code for your data type.
  */
-public class MyCurrentRequestRecyclerViewAdapter extends RecyclerView.Adapter<MyCurrentRequestRecyclerViewAdapter.ViewHolder> {
+public class CurrentRequestRecyclerViewAdapter extends RecyclerView.Adapter<CurrentRequestRecyclerViewAdapter.ViewHolder> {
 
     private final List<Request> mCurrentRequests;
     private final OnListFragmentInteractionListener mListener;
 
-    public MyCurrentRequestRecyclerViewAdapter(List<Request> currentRequests, OnListFragmentInteractionListener listener) {
+    public CurrentRequestRecyclerViewAdapter(List<Request> currentRequests, OnListFragmentInteractionListener listener) {
         mCurrentRequests = currentRequests;
         mListener = listener;
     }

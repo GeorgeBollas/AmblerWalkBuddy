@@ -11,7 +11,7 @@ public class MonitorPresenter
         extends PresenterBase
         implements IMonitorPresenter {
 
-    private IMonitorView view;
+    private final IMonitorView view;
 
     public MonitorPresenter(IMonitorView view) {
         this.view = view;
