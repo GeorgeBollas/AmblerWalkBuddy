@@ -12,6 +12,6 @@ public interface IRequestRepository {
 
     Request GetRequest(int id);
     List<Request> GetRequests();
-    List<Request> GetWaitingRequestss();
+    List<Request> GetWaitingRequests();
     List<Request> GetMyOffers(int myId);
 }

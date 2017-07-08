@@ -10,9 +10,8 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.Switch;
-import android.widget.TextView;
 
-import au.com.gravitywave.amblerwalkbuddy.my_status.MyStatusFragment;
+import au.com.gravitywave.amblerwalkbuddy.ui.fragments.MyStatusFragment;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 

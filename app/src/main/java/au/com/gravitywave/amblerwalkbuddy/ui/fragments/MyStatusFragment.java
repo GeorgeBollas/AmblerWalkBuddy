@@ -1,8 +1,7 @@
-package au.com.gravitywave.amblerwalkbuddy.my_status;
+package au.com.gravitywave.amblerwalkbuddy.ui.fragments;
 
 import android.content.Context;
 import android.net.Uri;
-import android.opengl.Visibility;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;

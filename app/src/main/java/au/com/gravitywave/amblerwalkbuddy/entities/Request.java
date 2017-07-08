@@ -10,31 +10,37 @@ import au.com.gravitywave.amblerwalkbuddy.bases.EntityBase;
 
 public class Request extends EntityBase {
 
-    private String requestId;
+    private int requestId;
+
     private int requesterId;
     private String requesterName;
+
     private String fromPlaceId;
-    private String fromName;
+    private String fromPlaceName;
     private String fromAddress;
+
     private String toPlaceId;
-    private String toName;
+    private String toPlaceName;
     private String toAddress;
+
     private Date time;
     private String note;
-    private String walkBuddyId;
+
+    private int walkBuddyId;
     private String walkBuddyName;
     private int walkBuddyImageId;
+
     private RequestStatus status;
 
-    public Request(String requestId, int requesterId, String requesterName, String fromPlaceId, String fromName, String fromAddress, String toPlaceId, String toName, String toAddress, Date time, String note, String walkBuddyId, String walkBuddyName, int walkBuddyImageId, RequestStatus status) {
+    public Request(int requestId, int requesterId, String requesterName, String fromPlaceId, String fromPlaceName, String fromAddress, String toPlaceId, String toPlaceName, String toAddress, Date time, String note, int walkBuddyId, String walkBuddyName, int walkBuddyImageId, RequestStatus status) {
         this.requestId = requestId;
         this.requesterId = requesterId;
         this.requesterName = requesterName;
         this.fromPlaceId = fromPlaceId;
-        this.fromName = fromName;
+        this.fromPlaceName = fromPlaceName;
         this.fromAddress = fromAddress;
         this.toPlaceId = toPlaceId;
-        this.toName = toName;
+        this.toPlaceName = toPlaceName;
         this.toAddress = toAddress;
         this.time = time;
         this.note = note;
@@ -44,11 +50,11 @@ public class Request extends EntityBase {
         this.status = status;
     }
 
-    public String getRequestId() {
+    public int getRequestId() {
         return requestId;
     }
 
-    public void setRequestId(String requestId) {
+    public void setRequestId(int requestId) {
         this.requestId = requestId;
     }
 
@@ -76,12 +82,12 @@ public class Request extends EntityBase {
         this.fromPlaceId = fromPlaceId;
     }
 
-    public String getFromName() {
-        return fromName;
+    public String getFromPlaceName() {
+        return fromPlaceName;
     }
 
-    public void setFromName(String fromName) {
-        this.fromName = fromName;
+    public void setFromPlaceName(String fromPlaceName) {
+        this.fromPlaceName = fromPlaceName;
     }
 
     public String getFromAddress() {
@@ -100,12 +106,12 @@ public class Request extends EntityBase {
         this.toPlaceId = toPlaceId;
     }
 
-    public String getToName() {
-        return toName;
+    public String getToPlaceName() {
+        return toPlaceName;
     }
 
-    public void setToName(String toName) {
-        this.toName = toName;
+    public void setToPlaceName(String toPlaceName) {
+        this.toPlaceName = toPlaceName;
     }
 
     public String getToAddress() {
@@ -132,11 +138,11 @@ public class Request extends EntityBase {
         this.note = note;
     }
 
-    public String getWalkBuddyId() {
+    public int getWalkBuddyId() {
         return walkBuddyId;
     }
 
-    public void setWalkBuddyId(String walkBuddyId) {
+    public void setWalkBuddyId(int walkBuddyId) {
         this.walkBuddyId = walkBuddyId;
     }
 
@@ -165,7 +171,8 @@ public class Request extends EntityBase {
     }
 
     public enum RequestStatus {
-        notStarted,
+        requested,
+        offered,
         waiting,
         walking,
         complete

@@ -5,7 +5,7 @@
     android:layout_height="match_parent"
     android:background="@color/colorPrimaryDark"
     android:orientation="vertical"
-    tools:context="au.com.gravitywave.amblerwalkbuddy.my_status.MyStatusFragment">
+    tools:context="au.com.gravitywave.amblerwalkbuddy.ui.fragments.MyStatusFragment">
 
     <TextView
         android:id="@+id/myNameTextView"

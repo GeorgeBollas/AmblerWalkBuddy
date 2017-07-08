@@ -1,5 +1,6 @@
 package au.com.gravitywave.amblerwalkbuddy.monitor;
 
+import au.com.gravitywave.amblerwalkbuddy.Interactors.RequestsInteractor;
 import au.com.gravitywave.amblerwalkbuddy.bases.PresenterBase;
 
 /**
@@ -15,4 +16,10 @@ public class MonitorPresenter
     public MonitorPresenter(IMonitorView view) {
         this.view = view;
     }
+
+    @Override
+    public void InitBuddy() {
+        view.Show(100);
+    }
+
 }
