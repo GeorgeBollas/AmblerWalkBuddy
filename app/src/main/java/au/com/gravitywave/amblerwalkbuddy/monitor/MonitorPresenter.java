@@ -18,7 +18,7 @@ public class MonitorPresenter
     }
 
     @Override
-    public void InitBuddy() {
+    public void InitList() {
         view.Show(100);
     }
 

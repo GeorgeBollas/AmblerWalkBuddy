@@ -1,17 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     tools:context="au.com.gravitywave.amblerwalkbuddy.ui.activities.MonitorActivity">
+    <!--android:id="@+id/container"-->
 
     <LinearLayout
+        android:layout_weight="1"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:orientation="vertical">
 
         <FrameLayout
-            android:id="@+id/my_offers_container"
+            android:id="@+id/container"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
@@ -21,15 +25,13 @@
                 android:text="Loading my offers" />
         </FrameLayout>
 
-        <FrameLayout
-            android:id="@+id/current_offers_container"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Loading current offers" />
-        </FrameLayout>
     </LinearLayout>
-</android.support.constraint.ConstraintLayout>
+
+    <android.support.design.widget.BottomNavigationView
+        android:id="@+id/navigation"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom"
+        android:background="?android:attr/windowBackground"
+        app:menu="@menu/navigation" />
+</LinearLayout>

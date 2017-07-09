@@ -9,6 +9,6 @@ import au.com.gravitywave.amblerwalkbuddy.entities.Request;
  */
 
 public interface IMonitorPresenter {
-    void InitBuddy();
+    void InitList();
 
 }
