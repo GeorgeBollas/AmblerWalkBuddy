@@ -171,11 +171,21 @@ public class Request extends EntityBase {
     }
 
     public enum RequestStatus {
-        requested,
-        offered,
-        waiting,
-        walking,
-        complete
+        requested(1),
+        offered(2),
+        waiting(3),
+        walking(4),
+        complete(5);
+
+        int requestStatus;
+        RequestStatus(int s){
+            requestStatus = s;
+        }
+
+        int GetValue(){
+            return requestStatus;
+        }
+
     }
 
 }

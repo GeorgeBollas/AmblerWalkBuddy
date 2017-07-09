@@ -2,6 +2,8 @@ package au.com.gravitywave.amblerwalkbuddy.Interactors;
 
 import java.util.List;
 
+import javax.inject.Inject;
+
 import au.com.gravitywave.amblerwalkbuddy.Interactors.IRequestsInteractor;
 import au.com.gravitywave.amblerwalkbuddy.bases.InteractorBase;
 import au.com.gravitywave.amblerwalkbuddy.entities.Request;
@@ -18,8 +20,9 @@ public class RequestsInteractor
 {
     private IRequestRepository requestRepository;
 
-    public RequestsInteractor() {
-        requestRepository = new RequestRepository();
+    @Inject
+    public RequestsInteractor(IRequestRepository requestRepository) {
+        this.requestRepository = requestRepository;
     }
 
     @Override

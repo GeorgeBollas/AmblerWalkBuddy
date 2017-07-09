@@ -4,8 +4,11 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
+import javax.inject.Inject;
+
 import au.com.gravitywave.amblerwalkbuddy.bases.RepositoryBase;
 import au.com.gravitywave.amblerwalkbuddy.entities.Request;
+import dagger.Provides;
 
 /**
  * Created by georg on 7/07/2017.

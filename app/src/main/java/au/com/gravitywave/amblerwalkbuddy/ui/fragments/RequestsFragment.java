@@ -9,14 +9,14 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import au.com.gravitywave.amblerwalkbuddy.R;
-import au.com.gravitywave.amblerwalkbuddy.entities.Request;
-import au.com.gravitywave.amblerwalkbuddy.myoffers.IMyOffersPresenter;
-import au.com.gravitywave.amblerwalkbuddy.myoffers.IMyOffersView;
-import au.com.gravitywave.amblerwalkbuddy.myoffers.MyOffersPresenter;
-import au.com.gravitywave.amblerwalkbuddy.ui.MyOffersRecyclerViewAdapter;
-
 import java.util.List;
+
+import au.com.gravitywave.amblerwalkbuddy.R;
+import au.com.gravitywave.amblerwalkbuddy.requests.RequestsPresenter;
+import au.com.gravitywave.amblerwalkbuddy.requests.IRequestsPresenter;
+import au.com.gravitywave.amblerwalkbuddy.requests.IRequestsView;
+import au.com.gravitywave.amblerwalkbuddy.entities.Request;
+import au.com.gravitywave.amblerwalkbuddy.ui.RequestRecyclerViewAdapter;
 
 /**
  * A fragment representing a list of Items.
@@ -24,31 +24,26 @@ import java.util.List;
  * Activities containing this fragment MUST implement the {@link OnListFragmentInteractionListener}
  * interface.
  */
-public class MyOffersFragment extends Fragment implements IMyOffersView {
+public class RequestsFragment extends Fragment implements IRequestsView {
 
+    private static int mBuddyId;
     private OnListFragmentInteractionListener mListener;
 
-    private static final String ARG_BUDDY_ID = "buddyId";
-
-    private int mBuddyId;
-
-    IMyOffersPresenter mPresenter;
-    View mOffersListView;
-
+    private List<Request> mCurrentRequests;
+    private View mCurrentRequestsView;
+    IRequestsPresenter mPresenter;
     /**
      * Mandatory empty constructor for the fragment manager to instantiate the
      * fragment (e.g. upon screen orientation changes).
      */
-    public MyOffersFragment() {
+    public RequestsFragment() {
     }
 
     // TODO: Customize parameter initialization
     @SuppressWarnings("unused")
-    public static MyOffersFragment newInstance(int buddyId) {
-        MyOffersFragment fragment = new MyOffersFragment();
-        Bundle args = new Bundle();
-        args.putInt(ARG_BUDDY_ID, buddyId);
-        fragment.setArguments(args);
+    public static RequestsFragment newInstance(int buddyId) {
+        mBuddyId = buddyId;
+        RequestsFragment fragment = new RequestsFragment();
         return fragment;
     }
 
@@ -56,20 +51,17 @@ public class MyOffersFragment extends Fragment implements IMyOffersView {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        mPresenter = new MyOffersPresenter(this);
+        mPresenter = new RequestsPresenter(this,mBuddyId);
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        mOffersListView = inflater.inflate(R.layout.fragment_my_offers_list, container, false);
+        mCurrentRequestsView = inflater.inflate(R.layout.fragment_requests_list, container, false);
 
-        if (getArguments() != null) {
-            mBuddyId = getArguments().getInt(ARG_BUDDY_ID);
-        }
+        mPresenter.ShowRequests();
 
-        mPresenter.ShowOffers(mBuddyId);
-        return mOffersListView;
+        return mCurrentRequestsView;
     }
 
 
@@ -91,12 +83,13 @@ public class MyOffersFragment extends Fragment implements IMyOffersView {
     }
 
     @Override
-    public void ShowOffers(List<Request> offers) {
-        Context context = mOffersListView.getContext();
-        RecyclerView recyclerView = (RecyclerView) mOffersListView;
-        recyclerView.setLayoutManager(new LinearLayoutManager(context));
-        recyclerView.setAdapter(new MyOffersRecyclerViewAdapter(offers, mListener));
-    }
+    public void showRequests(List<Request> currentRequests) {
+        // Set the adapter
+            Context context = mCurrentRequestsView.getContext();
+            RecyclerView recyclerView = (RecyclerView) mCurrentRequestsView;
+            recyclerView.setLayoutManager(new LinearLayoutManager(context));
+            recyclerView.setAdapter(new RequestRecyclerViewAdapter(currentRequests, mListener));
+        }
 
     /**
      * This interface must be implemented by activities that contain this
@@ -110,6 +103,6 @@ public class MyOffersFragment extends Fragment implements IMyOffersView {
      */
     public interface OnListFragmentInteractionListener {
         // TODO: Update argument type and name
-        void onListFragmentInteraction(Request offer);
+        void onListFragmentInteraction(Request currentRequest);
     }
 }
